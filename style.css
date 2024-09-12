@@ -1,5 +1,5 @@
 * {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
 }
@@ -14,11 +14,14 @@ body {
     background: #f0f0f0;
 }
 
+.container {
+    max-width: 1200px;
+}
+
 .carousel {
-    position: relative;
+    overflow: hidden;
     width: 80vw;
     height: 100vh;
-    overflow: hidden;
     border: 2px solid #ccc;
     border-radius: 10px;
     background: #fff;
@@ -26,15 +29,13 @@ body {
 
 .carousel-inner {
     display: flex;
-    width: 400%; 
-    height: 100%;
+    width: 400%;
+    height: 90%;
     transition: transform 2s ease;
 }
 
 .carousel-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: none;
+    object-fit: contain;
     flex: 1 0 25%;
 }
 
@@ -42,13 +43,47 @@ body {
     display: none;
 }
 
+.captions_and_controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    bottom: 10px;
+    box-sizing: border-box;
+}
+
+.captions {
+    text-align: center;
+}
+
+.caption {
+    color: #333;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+}
+
+#slide1:checked ~ .captions_and_controls .caption:nth-child(1) {
+    display: block;
+}
+
+#slide2:checked ~ .captions_and_controls .caption:nth-child(2) {
+    display: block;
+}
+
+#slide3:checked ~ .captions_and_controls .caption:nth-child(3) {
+    display: block;
+}
+
+#slide4:checked ~ .captions_and_controls .caption:nth-child(4) {
+    display: block;
+}
+
 .carousel-nav {
-    position: absolute;
-    width: 100%;
     display: flex;
     justify-content: center;
-    bottom: 10px;
-    z-index: 1;
+    box-sizing: border-box;
 }
 
 .carousel-nav label {
