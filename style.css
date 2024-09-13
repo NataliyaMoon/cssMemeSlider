@@ -10,6 +10,7 @@ body {
     align-items: center;
     height: 100vh;
     background: #f0f0f0;
+    background-color: antiquewhite;
 }
 
 .container {
@@ -75,26 +76,20 @@ body {
     display: block;
 }
 
-.carousel-nav {
+.carousel_nav {
     display: flex;
     justify-content: center;
     box-sizing: border-box;
 }
 
-.carousel-nav label {
+.carousel_nav label {
     background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 50%;
     display: block;
-    width: 20px;
-    height: 20px;
+    padding: 10px;
     margin: 0 5px;
+    border-radius: 50%;
     cursor: pointer;
     transition: background 0.3s ease;
-}
-
-.carousel-nav label:hover {
-    background: #ddd;
 }
 
 #slide1:checked ~ .carousel-inner {
@@ -111,4 +106,19 @@ body {
 
 #slide4:checked ~ .carousel-inner {
     transform: translateX(-75%);
+}
+
+.carousel_nav_item {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+.carousel_nav_item:hover {
+    background: #ddd;
+}
+
+.carousel_nav_item:active {
+    background: gray;
 }
