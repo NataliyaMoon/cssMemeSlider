@@ -15,6 +15,25 @@ body {
 
 .container {
     max-width: 1200px;
+    width: 70%;
+}
+
+@media (max-width: 1250px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        width: 100%;
+    }
 }
 
 .carousel {
@@ -23,6 +42,15 @@ body {
     border: 2px solid #ccc;
     border-radius: 10px;
     background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 1200px) {
+    .carousel {
+        height: 90vh;
+    }
 }
 
 .carousel-inner {
@@ -32,8 +60,34 @@ body {
     transition: transform 2s ease;
 }
 
+@media (max-width: 1200px) {
+    .carousel-inner {
+        height: 85%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .carousel-inner {
+        height: 75%;
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel-inner {
+        height: 65%;
+    }
+}
+
+@media (max-width: 500px) {
+    .carousel-inner {
+        height: 60%;
+    }
+}
+
 .carousel-inner img {
     flex: 1 0 25%;
+    width: 100%;
+    height: 100%;
 }
 
 .carousel input[type="radio"] {
@@ -44,12 +98,29 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 0;
     box-sizing: border-box;
 }
 
+@media (max-width: 776px) {
+    .captions_and_controls {
+        flex-direction: column-reverse;
+        margin-bottom: 100px;
+    }
+}
+
 .captions {
     flex: 1;
+}
+
+@media (max-width: 776px) {
+    .captions {
+        align-items: flex-start;
+        text-align: left;
+        margin-top: 10px;
+        width: 100%;
+    }
 }
 
 .caption {
@@ -62,18 +133,30 @@ body {
 
 #slide1:checked ~ .captions_and_controls .caption:nth-child(1) {
     display: block;
+    opacity: 1;
+    visibility: visible;
+    animation: fadeIn 1s ease forwards;
 }
 
 #slide2:checked ~ .captions_and_controls .caption:nth-child(2) {
     display: block;
+    opacity: 1;
+    visibility: visible;
+    animation: fadeIn 1s ease forwards;
 }
 
 #slide3:checked ~ .captions_and_controls .caption:nth-child(3) {
     display: block;
+    opacity: 1;
+    visibility: visible;
+    animation: fadeIn 1s ease forwards;
 }
 
 #slide4:checked ~ .captions_and_controls .caption:nth-child(4) {
     display: block;
+    opacity: 1;
+    visibility: visible;
+    animation: fadeIn 1s ease forwards;
 }
 
 .carousel_nav {
@@ -121,4 +204,50 @@ body {
 
 .carousel_nav_item:active {
     background: gray;
+}
+
+.img {
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+.caption {
+    color: #333;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.caption.active {
+    opacity: 1;
+    visibility: visible;
+    animation: fadeIn 1s ease forwards;
+}
+
+.caption.inactive {
+    animation: fadeOut 1s ease forwards;
 }
